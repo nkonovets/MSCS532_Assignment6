@@ -1,35 +1,24 @@
 import csv
 import os
 import time
-import tracemalloc
 
 
-def time_recorder(sort_algorithm, data):
+
+def time_recorder(select_algorithm, data, k):
 
     numbers = data.copy()                                #copy so the original data stays unosrted
 
     start = time.perf_counter()                          #record time using the difference between each timestamp
-    sort_algorithm(numbers, 0, len(numbers) - 1)
+    result = select_algorithm(numbers, 0, len(numbers) - 1, k, )
     total_time = time.perf_counter() - start
 
-    return total_time * 1000                             #seconds to milliseconds
+    return result, total_time * 1000                             #seconds to milliseconds
 
 
-def memory_recorder(sort_algorithm, data):
 
-    numbers = data.copy()
+def save_results(algorithm_name, select_algorithm, data, filename, k):
 
-    tracemalloc.start()
-    sort_algorithm(numbers, 0, len(numbers) - 1)         #record peak memory consumption by the program
-    _, peak = tracemalloc.get_traced_memory()
-    tracemalloc.stop()
-
-    return peak / 1024                                   #bytes to kilobytes
-
-
-def save_results(algorithm_name, sort_algorithm, data, filename):
-
-    ms = time_recorder(sort_algorithm, data)             #memory is not measured here, tracemalloc was too slow on the worst case
+    result, ms = time_recorder(select_algorithm, data, k)             
 
     new_file = not os.path.exists("results.csv")         #check if results.csv already exists
 
@@ -38,8 +27,8 @@ def save_results(algorithm_name, sort_algorithm, data, filename):
         writer = csv.writer(f)
 
         if new_file:
-            writer.writerow(["algorithm", "file", "n", "time_ms"])
+            writer.writerow(["algorithm", "file", "n", "k", "result", "time_ms"])
 
-        writer.writerow([algorithm_name, filename, len(data), round(ms, 2)])
+        writer.writerow([algorithm_name, filename, len(data), k, result, round(ms, 2)])
 
     print(f"{algorithm_name}  {filename}  n={len(data)}  {ms:.2f} ms")

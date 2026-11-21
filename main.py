@@ -1,29 +1,29 @@
-import sys
+
 
 from file_parser import get_data
-from quicksort_in_place import quicksort_deterministic
-from quicksort_in_place import quicksort_random
+from quick_select import quickselect_random
+from quick_select import quickselect_deterministic
 
 from recorder import save_results
 
 
 
-sys.setrecursionlimit(100_000) 
+
 
 
 if __name__ == "__main__":
 
-    algorithm_choice = input("Choose which Algorithm to use: \n Quick Sort Random(r) \n ------------------ \n Quick sort Deterministic(d) \n: ")
+    algorithm_choice = input("Choose which Algorithm to use: \n Quick Select Random(r) \n ------------------ \n Quick select Deterministic(d) \n: ")
 
     
 
     if algorithm_choice == "r":
-        name = "Quick Sort Random"
-        sort_algorithm = quicksort_random
+        name = "Quick Select Random"
+        select_algorithm = quickselect_random
 
     elif algorithm_choice == "d":
-        name = "Quick Sort Deterministic"
-        sort_algorithm = quicksort_deterministic
+        name = "Quick Select Deterministic"
+        select_algorithm = quickselect_deterministic
 
 
     else:
@@ -34,13 +34,9 @@ if __name__ == "__main__":
     filename = input("Select a file to get the data from for sorting: ")
 
     data = get_data(filename)
-    print("Data before sorting: ", data)
+
+    k = len(data) // 2          # look for the median   
 
     
-    sorted_data = data.copy()
 
-    sort_algorithm(sorted_data, 0, len(sorted_data) - 1)
-
-    print("Data after sorting: ", sorted_data)
-
-    save_results(name, sort_algorithm, data, filename)
+    save_results(name, select_algorithm, data, filename, k)
