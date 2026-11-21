@@ -1,2 +1,26 @@
 algorithm,file,n,k,result,time_ms
 Quick Select Deterministic,data/random_small.txt,1000,500,-844,0.92
+Quick Select Random,data/random_small.txt,1000,500,-844,0.12
+Quick Select Random,data/random_mid.txt,10000,5000,312,0.98
+Quick Select Random,data/random_large.txt,50000,25000,-384,4.68
+Quick Select Random,data/sorted_small.txt,1000,500,-844,0.17
+Quick Select Random,data/sorted_mid.txt,10000,5000,312,1.26
+Quick Select Random,data/sorted_large.txt,50000,25000,-384,6.14
+Quick Select Random,data/reverse_small.txt,1000,500,-844,0.13
+Quick Select Random,data/reverse_mid.txt,10000,5000,312,1.24
+Quick Select Random,data/reverse_large.txt,50000,25000,-384,4.74
+Quick Select Random,data/repeated_small.txt,1000,500,4,0.28
+Quick Select Random,data/repeated_mid.txt,10000,5000,4,0.73
+Quick Select Random,data/repeated_large.txt,50000,25000,4,24.42
+Quick Select Deterministic,data/random_small.txt,1000,500,-844,0.34
+Quick Select Deterministic,data/random_mid.txt,10000,5000,312,3.07
+Quick Select Deterministic,data/random_large.txt,50000,25000,-384,18.25
+Quick Select Deterministic,data/sorted_small.txt,1000,500,-844,0.28
+Quick Select Deterministic,data/sorted_mid.txt,10000,5000,312,2.96
+Quick Select Deterministic,data/sorted_large.txt,50000,25000,-384,14.91
+Quick Select Deterministic,data/reverse_small.txt,1000,500,-844,0.28
+Quick Select Deterministic,data/reverse_mid.txt,10000,5000,312,2.93
+Quick Select Deterministic,data/reverse_large.txt,50000,25000,-384,14.81
+Quick Select Deterministic,data/repeated_small.txt,1000,500,4,0.14
+Quick Select Deterministic,data/repeated_mid.txt,10000,5000,4,2.35
+Quick Select Deterministic,data/repeated_large.txt,50000,25000,4,6.44
