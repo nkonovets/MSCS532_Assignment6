@@ -6,25 +6,28 @@ from quick_select import quickselect_deterministic
 
 from recorder import save_results
 
-
+from test_data_structures import test_structures
 
 
 
 
 if __name__ == "__main__":
 
-    algorithm_choice = input("Choose which Algorithm to use: \n Quick Select Random(r) \n ------------------ \n Quick select Deterministic(d) \n: ")
+    choice = input("Choose what do you want to test: \n Quick Select Random(r) \n ------------------ \n Quick select Deterministic(d) \n ------------------ \n Test data structures(s): ")
 
     
 
-    if algorithm_choice == "r":
+    if choice == "r":
         name = "Quick Select Random"
         select_algorithm = quickselect_random
 
-    elif algorithm_choice == "d":
+    elif choice == "d":
         name = "Quick Select Deterministic"
         select_algorithm = quickselect_deterministic
 
+    elif choice == "s":
+        test_structures()
+        exit()
 
     else:
         print("Wrong input, please restart the program and choose option \"r\" or \"d\" ")
