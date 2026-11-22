@@ -61,6 +61,18 @@ class Matrix:
     def setelem(self, i, j, value):
         self.itemcnt[i * self.columns + j] = value
 
+    def delrow(self, i):        #delete rows
+
+        start = i * self.columns
+        self.itemcnt = self.itemcnt[:start] + self.itemcnt[start + self.columns:]
+        self.rows -= 1
+
+    def insrow(self, i, value):  #insert rows
+
+        start = i * self.columns
+        self.itemcnt = self.itemcnt[:start] + value + self.itemcnt[start:]
+        self.rows += 1
+
 
 
 class Stack:            # stack on a fixed-size array
