@@ -29,7 +29,7 @@ def partition_random(data, start, end):    #creating quicksort partition with a 
 
 
 
-def quickselect_random(data, start, end, k):
+def quickselect_random(data, start, end, k):            #find the k-th smallest nmuber using a random pivot
 
     while start < end:
 
@@ -46,13 +46,13 @@ def quickselect_random(data, start, end, k):
 
 
 
-def partition_around(data, start, end, pivot):     
+def partition_around(data, start, end, pivot):     #split the range into smaller, equal and bigger than the pivot
 
     low = start         #smaller than the pivot
     i = start
     high = end          #bigger than the pivot
 
-    while i <= high:    # loop to put each number into its part
+    while i <= high:    #loop to put each number into its part
 
         if data[i] < pivot:
             data[low], data[i] = data[i], data[low]
@@ -66,7 +66,7 @@ def partition_around(data, start, end, pivot):
         else:
             i += 1
 
-    return low, high    # the numbers equal to the pivot go between low and high
+    return low, high    #the numbers equal to the pivot go between low and high
 
 
 
